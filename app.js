@@ -1,6 +1,6 @@
 const formAdd = document.querySelector('.form-add-todo');
 const todosContainer = document.querySelector('.todos-container');
-const deleteButton = 
+
 formAdd.addEventListener('submit', event => {
     event.preventDefault()
     const inputValue = event.target.add.value.trim();
@@ -15,5 +15,11 @@ formAdd.addEventListener('submit', event => {
         alert ('Insira uma palavra');
     }
 
-
+    event.target.reset();
+})
+todosContainer.addEventListener('click', event => {
+    const clickedElement = event.target;
+    if(Array.from(clickedElement.classList).includes('delete')) {
+        clickedElement.parentElement.remove()
+    }
 })
